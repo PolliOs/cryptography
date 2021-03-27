@@ -1,0 +1,11 @@
+factor 32756834783245234533
+(output = 3^1 * big_prime)
+factor 23567237
+log 236487681234 1784811251 2341234243
+(output 234234)
+isPrime 236487681234
+(output no, factorization is 2^2*7*3^2*239*7853081)
+legendre 10 13
+1
+sqrt 10 13
+6
