@@ -18,4 +18,4 @@ add_subdirectory(SHA256)
 
 add_subdirectory(googleTestLib)
 
-target_link_libraries(bigint SHA256) 
+target_link_libraries(bigint SHA256)
