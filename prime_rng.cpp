@@ -1,4 +1,4 @@
-#include "prime_rng.hpp"
+#include "prime_rng.h"
 
 const BigInt PrimeRNG::nextPrime(int length_in_bits){
 	BigInt result;

@@ -1,4 +1,5 @@
 #include "crypto.hpp"
+#include "rng.hpp"
 
 class PrimeRNG{
 private:

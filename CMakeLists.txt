@@ -16,6 +16,8 @@ include_directories(SHA256)
 add_executable(prime_rng.cpp rng.cpp crypto.cpp )
 add_subdirectory(SHA256)
 
-add_subdirectory(googleTestLib)
 
 target_link_libraries(bigint SHA256)
+
+add_executable(RSAConnect advanced/RSAConnect.cpp advanced/RSA.cpp advanced/ConnectRSAMain.cpp crypto.cpp rng.cpp)
+target_link_libraries(RSAConnect bigint)

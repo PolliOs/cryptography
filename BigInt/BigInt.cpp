@@ -190,7 +190,8 @@ const BigInt operator - (const BigInt& a, const BigInt& b) {
 const BigInt operator * (const BigInt& a, const BigInt& b){
 	bool sign = a.sign == b.sign ? true : false;
 	std::vector<int> result = std::vector<int>();
-
+  //  std::cout << "a = " << a.toStr() ;
+    //std::cout << " b = " << b.toStr() << "\n";
 	std::vector<std::complex<double>> fa(a.bits.begin(), a.bits.end()), fb(b.bits.begin(), b.bits.end());
 	int n = 1;
 	while (n < std::max(fa.size(), fb.size())) n *= 2;
