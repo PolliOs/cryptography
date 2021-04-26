@@ -31,6 +31,14 @@ void RSAConnect::sendMessage(Message msg, RSAClient *clientWhoSends) {
     }
 }
 
+void RSAConnect::sendSilentMessage(Message msg, RSAClient *clientWhoSends) {
+    for(auto client:clients){
+        if(client.second != clientWhoSends) {
+            client.second->getSilenttMessage(msg);
+        }
+    }
+}
+
 RSAClient::RSAClient(string username, int lengthInBits) {
     this->username = username;
     this->keys = rsa.createKeys(lengthInBits, RSAConnect::publicExponent);
@@ -53,8 +61,20 @@ BigInt RSAClient::getModulo() {
 }
 
 void RSAClient::getMessage(Message msg) {
-    cout << "User: " << this->getUsername() << " received message: " << this->decryptMessage(msg.content)
+    string message = BigIntConverter::toStr(msg.content);
+    auto signature = this->rsa.sign(message, this->keys);
+    string decrypted = this->decryptMessage(msg.content);
+    cout << "User: " << this->getUsername() << " received message: " << decrypted
     << " from user: " << msg.author << "\n";
+    if(!this->rsa.verify(decrypted, signature)){
+        cout << "Verify failed!\n";
+    }
+}
+
+void RSAClient::getSilenttMessage(Message msg) {
+    auto username = this->getUsername();
+    auto receivedMsg = this->decryptMessage(msg.content);
+    auto authoer = msg.author;
 }
 
 Message RSAClient::createMessage(string msg) {

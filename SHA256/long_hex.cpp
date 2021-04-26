@@ -78,12 +78,12 @@ bool LongHex::hasZerosPrefix(int nBits) const{
 	return false;
 }
 
-//void to_json(json& j, const LongHex& long_hex){
-//	j = json{{"bytes", long_hex.getBytes()}};
-//}
-//
-//void from_json(const json& j, LongHex& long_hex){
-//	std::vector<byte> bytes;
-//	j.at("bytes").get_to(bytes);
-//	long_hex.setBytes(bytes);
-//}
+void to_json(json& j, const LongHex& long_hex){
+j = json{{"bytes", long_hex.getBytes()}};
+}
+
+void from_json(const json& j, LongHex& long_hex){
+    std::vector<byte> bytes;
+    j.at("bytes").get_to(bytes);
+    long_hex.setBytes(bytes);
+}

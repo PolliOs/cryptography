@@ -2,10 +2,10 @@
 #include <vector> 
 #include <string>
 #include <cmath>
-/*
+
 #include <nlohmann/json.hpp>
 using json = nlohmann::json;
-*/
+
 class BigInt {
 private:
 	BigInt(std::vector<int> bits, bool sign=true);
@@ -56,5 +56,5 @@ public:
     std::string show64();
 };
 
-//void to_json(json& j, const BigInt& big_int);
-//void from_json(const json& j, BigInt& big_int);
+void to_json(json& j, const BigInt& big_int);
+void from_json(const json& j, BigInt& big_int);

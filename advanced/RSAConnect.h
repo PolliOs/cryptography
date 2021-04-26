@@ -36,6 +36,7 @@ public:
     vector<BigInt> encryptMessage(string msg);
     string decryptMessage(vector<BigInt> cipherText);
 
+    void getSilenttMessage(Message msg);
 };
 
 class RSAConnect{
@@ -48,6 +49,8 @@ public:
     vector<BigInt> getModules();
 
     void left(RSAClient *clientToLeave);
+
+    void sendSilentMessage(Message msg, RSAClient *clientWhoSends);
 };
 
 

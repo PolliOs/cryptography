@@ -1,11 +1,11 @@
 #pragma once
 #include <string>
 #include <vector>
-/*
+
 #include <nlohmann/json.hpp>
 
 using json = nlohmann::json;
- */
+
 using byte = unsigned char;
 
 class LongHex{
@@ -27,5 +27,6 @@ public:
 	std::string toStr();
 };
 
-//void to_json(json& j, const LongHex& long_hex);
-//void from_json(const json& j, LongHex& long_hex);
+void to_json(json& j, const LongHex& long_hex);
+
+void from_json(const json& j, LongHex& long_hex);
