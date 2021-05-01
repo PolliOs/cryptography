@@ -86,6 +86,7 @@ class Blockchain {
     vector<SignedTransaction> pool;
     vector<map<Address, double>> balances;
 public:
+    void updateFile();
     const static int targetZerosPrefix;
     const static LongHex firstBlockHash;
     const static double reward;

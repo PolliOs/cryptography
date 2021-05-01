@@ -92,7 +92,7 @@ int main() {
     }
 }
 
-void assert(bool received, bool expected, std::string num){
+void Assert(bool received, bool expected, std::string num){
     if(received != expected){
         std::cout << "assertion failed: number - " << num << "should is " << (expected?"prime": "composite") << " but another answer received\n";
     }
@@ -100,37 +100,37 @@ void assert(bool received, bool expected, std::string num){
 
 void test() {
     std::cout << "checking Miller–Rabin primality test\n";
-    assert(Crypto::isPrime(BigInt("13")), true, "13");
-    assert(Crypto::isPrime(BigInt("89")), true, "89");
-    assert(Crypto::isPrime(BigInt("97")), true, "97");
-    assert(Crypto::isPrime(BigInt("127")), true, "127");
-    assert(Crypto::isPrime(BigInt("8191")), true, "8191");
-    assert(Crypto::isPrime(BigInt("131071")), true, "131071");
-    assert(Crypto::isPrime(BigInt("524287")), true, "524287");
-    assert(Crypto::isPrime(BigInt("6700417")), true, "6700417");
-    assert(Crypto::isPrime(BigInt("2147483647")), true, "2147483647");
-    assert(Crypto::isPrime(BigInt("999999000001")), true, "999999000001");
-    assert(Crypto::isPrime(BigInt("67280421310721")), true, "67280421310721");
-    assert(Crypto::isPrime(BigInt("170141183460469231731687303715884105727")), true, "170141183460469231731687303715884105727");
-    assert(Crypto::isPrime(BigInt("5210644015679228794060694325390955853335898483908056458352183851018372555735221")), true, "5210644015679228794060694325390955853335898483908056458352183851018372555735221");
-    assert(Crypto::isPrime(BigInt("6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151")), true, "6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151");
+    Assert(Crypto::isPrime(BigInt("13")), true, "13");
+    Assert(Crypto::isPrime(BigInt("89")), true, "89");
+    Assert(Crypto::isPrime(BigInt("97")), true, "97");
+    Assert(Crypto::isPrime(BigInt("127")), true, "127");
+    Assert(Crypto::isPrime(BigInt("8191")), true, "8191");
+    Assert(Crypto::isPrime(BigInt("131071")), true, "131071");
+    Assert(Crypto::isPrime(BigInt("524287")), true, "524287");
+    Assert(Crypto::isPrime(BigInt("6700417")), true, "6700417");
+    Assert(Crypto::isPrime(BigInt("2147483647")), true, "2147483647");
+    Assert(Crypto::isPrime(BigInt("999999000001")), true, "999999000001");
+    Assert(Crypto::isPrime(BigInt("67280421310721")), true, "67280421310721");
+    Assert(Crypto::isPrime(BigInt("170141183460469231731687303715884105727")), true, "170141183460469231731687303715884105727");
+    Assert(Crypto::isPrime(BigInt("5210644015679228794060694325390955853335898483908056458352183851018372555735221")), true, "5210644015679228794060694325390955853335898483908056458352183851018372555735221");
+    Assert(Crypto::isPrime(BigInt("6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151")), true, "6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151");
     std::cout << "all test passed \n";
 
     std::cout << "checking Baillie–PSW primality test\n";
-    assert(Crypto::isPrimeBPSW(BigInt("13")), true, "13");
-    assert(Crypto::isPrimeBPSW(BigInt("43")), true, "43");
-    assert(Crypto::isPrimeBPSW(BigInt("97")), true, "97");
-    assert(Crypto::isPrimeBPSW(BigInt("108")), false, "107");
-    assert(Crypto::isPrimeBPSW(BigInt("8192")), false, "8192");
-    assert(Crypto::isPrimeBPSW(BigInt("131071")), true, "131071");
-    assert(Crypto::isPrimeBPSW(BigInt("524283")), false, "524282");
-    assert(Crypto::isPrimeBPSW(BigInt("6700417")), true, "6700417");
-    assert(Crypto::isPrimeBPSW(BigInt("2147483647")), true, "2147483647");
-    assert(Crypto::isPrimeBPSW(BigInt("999999000002")), false, "999999000002");
-    assert(Crypto::isPrimeBPSW(BigInt("67280421310721")), true, "67280421310721");
-    assert(Crypto::isPrimeBPSW(BigInt("170141183460469231731687303715884105727")), true, "170141183460469231731687303715884105727");
-    assert(Crypto::isPrimeBPSW(BigInt("52106440156792287940606943253909558533358984839080564583521838510183725557352217")), false, "5210644015679228794060694325390955853335898483908056458352183851018372555735221");
-    assert(Crypto::isPrimeBPSW(BigInt("6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151")), false, "6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151");
+    Assert(Crypto::isPrimeBPSW(BigInt("13")), true, "13");
+    Assert(Crypto::isPrimeBPSW(BigInt("43")), true, "43");
+    Assert(Crypto::isPrimeBPSW(BigInt("97")), true, "97");
+    Assert(Crypto::isPrimeBPSW(BigInt("108")), false, "107");
+    Assert(Crypto::isPrimeBPSW(BigInt("8192")), false, "8192");
+    Assert(Crypto::isPrimeBPSW(BigInt("131071")), true, "131071");
+    Assert(Crypto::isPrimeBPSW(BigInt("524283")), false, "524282");
+    Assert(Crypto::isPrimeBPSW(BigInt("6700417")), true, "6700417");
+    Assert(Crypto::isPrimeBPSW(BigInt("2147483647")), true, "2147483647");
+    Assert(Crypto::isPrimeBPSW(BigInt("999999000002")), false, "999999000002");
+    Assert(Crypto::isPrimeBPSW(BigInt("67280421310721")), true, "67280421310721");
+    Assert(Crypto::isPrimeBPSW(BigInt("170141183460469231731687303715884105727")), true, "170141183460469231731687303715884105727");
+    Assert(Crypto::isPrimeBPSW(BigInt("52106440156792287940606943253909558533358984839080564583521838510183725557352217")), false, "5210644015679228794060694325390955853335898483908056458352183851018372555735221");
+    Assert(Crypto::isPrimeBPSW(BigInt("6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151")), false, "6864797660130609714981900799081393217269435300143305409394463459185543183397656052122559640661454554977296311391480858037121987999716643812574028291115057151");
     std::cout << "all test passed \n";
     help();
 }
@@ -257,7 +257,7 @@ void ElGamalDemo() {
         res += decr;
     }
 
-    ElG.assert(res == msg);
+    ElG.Assert(res == msg);
 
     std::cout << "Decrypted message: \n" << res << "\n";
 }

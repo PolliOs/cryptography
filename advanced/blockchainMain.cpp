@@ -6,12 +6,15 @@
 #include<map>
 #include<iostream>
 
+void help();
+
 int main(){
     BlockchainClient blockchainClient;
     map<string, RSA::Keys> account;
     map<string, BigInt> to;
     string alias;
     RSA rsa;
+    help();
 
     string command;
     while (cin >> command){
@@ -81,15 +84,7 @@ int main(){
         }
 
         if (command == "help"){
-            cout << "create : add new address\n";
-            cout << "mine : mine next block\n";
-            cout << "list : list all account aliases\n";
-            cout << "add : create transaction\n";
-            cout << "verify : verify blockchain\n";
-            cout << "set : set alias for address\n";
-            cout << "balance : get balance\n";
-            cout << "balances : get balances\n";
-            cout << "exit : exit client\n";
+           help();
         }
 
         if (command == "exit"){
@@ -99,4 +94,17 @@ int main(){
 
         cout << "\n";
     }
+}
+
+void help() {
+    cout << "create : add new address\n";
+    cout << "mine : mine next block\n";
+    cout << "list : list all account aliases\n";
+    cout << "add : create transaction\n";
+    cout << "verify : verify blockchain\n";
+    cout << "balance : get balance\n";
+    cout << "balances : get balances\n";
+    cout << "help\n";
+    cout << "exit : exit client\n";
+
 }

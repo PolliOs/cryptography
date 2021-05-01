@@ -34,7 +34,9 @@ public:
 
 	friend const BigInt abs(const BigInt& value);
 	friend const BigInt sqrt(const BigInt& a);
-	friend const BigInt gcdEx(BigInt a, BigInt b, BigInt& x, BigInt& y);
+    friend const BigInt mul(BigInt a, BigInt b, BigInt m);
+    friend const BigInt binPow(BigInt num, BigInt st, BigInt mod);
+    friend const BigInt gcdEx(BigInt a, BigInt b, BigInt& x, BigInt& y);
 	friend const BigInt gcd(const BigInt& a, const BigInt& b);
 	friend const BigInt findInverse(const BigInt& y, const BigInt& modulo);
 	friend const BigInt operator - (const BigInt& value);

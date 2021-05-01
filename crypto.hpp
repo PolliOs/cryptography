@@ -30,6 +30,10 @@ public:
 
 	static const BigInt generatePrime(int len_in_bits);
 
+    static const BigInt generateRNG(int len_in_bits);
+
+    static const BigInt generatePrime(int len_in_bits, BigInt s);
+
     static bool isPrimeBPSW(const BigInt &n);
 
 

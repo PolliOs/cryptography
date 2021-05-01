@@ -39,6 +39,9 @@ project(cryptography)
 set(SOURCE_EXE main.cpp crypto.cpp elliptic_curve.cpp ElGamal.cpp mapping.cpp rng.cpp)
 include_directories(BigInt)
 
+add_executable(aplhaBeta courseWork/alphaBetaProtocol.cpp courseWork/alphaBetaProtocol.h  rng.cpp crypto.cpp courseWork/AplhaBetaProtocolMain.cpp)
+target_link_libraries(aplhaBeta bigint)
+
 add_executable(cryptography ${SOURCE_EXE})
 add_subdirectory(BigInt)
 

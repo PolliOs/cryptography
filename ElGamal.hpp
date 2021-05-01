@@ -24,5 +24,5 @@ public:
 	const std::pair<Point, Point> encrypt_char(char message, const Point openKey);
 	const char decrypt_char(const BigInt& k, std::pair<Point, Point> c);
 
-    void assert(bool curve);
+    void Assert(bool curve);
 };

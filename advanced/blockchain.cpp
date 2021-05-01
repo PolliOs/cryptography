@@ -117,7 +117,7 @@ const int Blockchain::targetZerosPrefix = 2;
 const LongHex Blockchain::firstBlockHash = LongHex();
 const double Blockchain::reward = 10;
 const Address Blockchain::miningAddress = Address();
-const std::string Blockchain::file = "blockchain_dump.txt";
+const std::string Blockchain::file = "../blockchain.json";
 
 
 void Blockchain::setPool(vector<SignedTransaction> pool) {
@@ -195,7 +195,34 @@ bool Blockchain::addBlock(Block block) {
 
     this->blocks.push_back(block);
     this->pool.clear();
+    updateFile();
     return true;
+}
+
+void Blockchain::updateFile() {
+    //cout << "in update";
+    json blockchainJson = *this;
+//    freopen("r", "blockchain.json", stdout);
+//    dump_file.open();
+//    if(!dump_file){
+//        cout << "error opening the file!\n";
+//    }
+//    dump_file << blockchainJson.dump();
+//    dump_file << "bla";
+//    dump_file.close();
+    ofstream outputFile(this->file);
+    if (outputFile.fail())
+    {
+        cout << "Failed to open outputfile.\n";
+    }
+    outputFile << blockchainJson.dump();;
+    outputFile.close();
+   // cout << "finish";
+//    freopen( "../blockchain.json","w", stdout);
+//    cout << "HELLO!\n";
+
+
+
 }
 
 bool Block::verify(LongHex prevBlockHeaderHash) {
@@ -293,7 +320,11 @@ void Blockchain::dump(){
     json blockchainJson = *this;
     std::ofstream dump_file;
     dump_file.open(this->file);
+    if(!dump_file){
+        cout << "error opening the file!\n";
+    }
     dump_file << blockchainJson.dump();
+  //  cout << "dump";
     dump_file.close();
 }
 
@@ -346,6 +377,7 @@ Blockchain Blockchain::load(){
     dump_file.open(file);
 
     if (!dump_file.is_open()){
+        cout << "can't open";
         return Blockchain();
     }
 

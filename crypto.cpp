@@ -257,3 +257,14 @@ const BigInt Crypto::generatePrime(int length_in_bits){
             result = rng.next(length_in_bits);
         return result;
 }
+
+const BigInt Crypto::generateRNG(int lengthInBits){
+    return rng.next(lengthInBits);
+}
+
+const BigInt Crypto::generatePrime(int length_in_bits, BigInt s){
+    BigInt result = BigInt(4);
+    while (!Crypto::isPrime(result) || result > s)
+        result = rng.next(length_in_bits);
+    return result;
+}

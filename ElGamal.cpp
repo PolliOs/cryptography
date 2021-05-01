@@ -55,6 +55,6 @@ const char ElGamal::decrypt_char(const BigInt& k, std::pair<Point, Point> c){
 	return this->m.pointToChar(this->decrypt(k, c));
 }
 
-void ElGamal::assert(bool curve) {
+void ElGamal::Assert(bool curve) {
     std::cout << "Assertion failed\n";
 }

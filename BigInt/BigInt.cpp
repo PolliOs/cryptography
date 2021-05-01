@@ -248,6 +248,26 @@ const BigInt pow(const BigInt& a, const BigInt& n, const BigInt& modulo){
 	return byModulo ? result % modulo : result;
 }
 
+const BigInt mul(BigInt a, BigInt b, BigInt m) {
+    a = a % m, b = b % m;
+    BigInt q = a * b / m;
+    BigInt res = a * b - q * m;
+    while(res < 0)
+        res =  res +m;
+    return res % m;
+}
+
+const BigInt binPow(BigInt num, BigInt st, BigInt mod) {
+    if (st == BigInt(0))
+        return BigInt(1);
+    if (st % 2 == 1)
+        return mul(binPow(num, st - 1, mod), num, mod);
+    else {
+        BigInt b = binPow(num, st / 2, mod);
+        return mul(b, b, mod);
+    }
+}
+
 int digitBinarySearch(const BigInt& a, const BigInt& b){
 	int l = 0, m, r = BigInt::base - 1;
 	while (r - l > 1){
